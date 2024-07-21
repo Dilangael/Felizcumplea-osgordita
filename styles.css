@@ -1,0 +1,166 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: rgb(255, 255, 255);
+}
+#video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1; /* Asegura que el video esté detrás del contenido */
+}
+
+#background-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+#container {
+    text-align: center;
+}
+
+
+#title {
+    margin-top: 50px;
+    color: #fff; /* Color blanco para el texto */
+}
+
+#gift {
+    width: 400px;
+    height: 400px;
+    margin: 0 auto;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+#gift img {
+    width: 100%;
+    height: 100%;
+}
+
+#message {
+    margin-top: 20px;
+}
+
+.envelope {
+    width: 300px;
+    height: 200px;
+    position: relative;
+    margin: 0 auto;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+    cursor: pointer;
+    pointer-events: none; /* Evitar clics iniciales */
+}
+
+.envelope-front, .envelope-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.envelope-front {
+    transform: rotateY(0deg);
+}
+
+.envelope-back {
+    transform: rotateY(180deg);
+    display: none;
+}
+
+.envelope.open {
+    transform: rotateY(180deg);
+}
+
+.envelope.open .envelope-front {
+    display: none;
+}
+
+.envelope.open .envelope-back {
+    display: block;
+}
+
+.envelope img {
+    max-width: 100%;
+    max-height: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.balloon {
+    width: 50px;
+    height: 70px;
+    position: fixed;
+    bottom: -100px;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: floatUp 5s ease-in-out infinite;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-150vh);
+    }
+}
+.envelope {
+    width: 300px; /* Ancho del sobre */
+    height: 200px; /* Altura del sobre */
+    position: relative;
+    margin: 0 auto; /* Centrado horizontalmente */
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+    cursor: pointer;
+}
+.envelope {
+    width: 300px; /* Ancho del sobre */
+    height: 200px; /* Altura del sobre */
+    position: relative;
+    margin: 0 auto; /* Centrado horizontalmente */
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+
+.envelope .envelope-front, .envelope .envelope-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover; /* Ajusta el tamaño de la imagen */
+    background-repeat: no-repeat; /* Evita la repetición de la imagen */
+    backface-visibility: hidden;
+}
+
+.envelope .envelope-front {
+    background-image: url('envelope-front.png'); /* Imagen del frente del sobre */
+    transform: rotateY(0deg);
+}
+
+.envelope .envelope-back {
+    background-image: url('your-image.png'); /* Imagen sorpresa del reverso del sobre */
+    transform: rotateY(180deg); /* Orientación invertida para el reverso del sobre */
+    display: none;
+    text-align: center; /* Centrar contenido horizontalmente */
+    padding-top: 5px; /* Espacio superior */
+    width: 1280px; /* Ancho del reverso del sobre */
+    height: 960px; /* Altura del reverso del sobre */
+    top: 50%; /* Centrar verticalmente */
+    left: 50%; /* Centrar horizontalmente */
+    transform-origin: center; /* Punto de transformación en el centro */
+    transform: translate(-50%, -50%) rotateY(180deg); /* Ajustar posición centrada y orientación */
+}
+
+.envelope.open .envelope-back {
+    display: block; /* Mostrar el reverso del sobre al abrir */
+}
